@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Invitation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fbecec;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+        .buttons {
+            margin-top: 30px;
+            transition: opacity 0.5s ease-in-out;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 0 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        #fireworks {
+            display: none;
+            font-size: 2rem;
+            color: #FFD700;
+            margin-top: 20px;
+            animation: riseUp 1s ease-in-out forwards;
+        }
+        @keyframes riseUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you go on a date with me?</h1>
+        <div class="buttons" id="buttonContainer">
+            <button class="yes-btn" onclick="showFireworks()">Yes</button>
+            <button class="no-btn" onclick="retryPage()">No</button>
+        </div>
+        <div id="fireworks">🎆🎇 Yay! Can't wait to see you! 🎇🎆</div>
+    </div>
+
+    <script>
+        function retryPage() {
+            location.reload();
+        }
+
+        function showFireworks() {
+            const buttonContainer = document.getElementById('buttonContainer');
+            buttonContainer.style.opacity = '0';
+            setTimeout(() => {
+                buttonContainer.style.display = 'none';
+                const fireworks = document.getElementById('fireworks');
+                fireworks.style.display = 'block';
+                setTimeout(() => {
+                    alert("Get ready for an unforgettable time! ✨");
+                }, 1500);
+            }, 500);
+        }
+    </script>
+</body>
+</html>
